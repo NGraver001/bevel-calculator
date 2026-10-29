@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f3ed"><meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Bevel"><meta name="description" content="Find the contact wheel center offset for a symmetric knife primary bevel.">
+  <link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css"><title>Bevel · Knife grinding calculator</title>
+</head>
+<body>
+<div class="shell">
+  <header><a class="brand" href="./" aria-label="Bevel home"><span class="brand-icon">◩</span> BEVEL<span class="brand-caption">WORKSHOP TOOLS</span></a><span class="header-note">PRECISION STARTS WITH THE SETUP.</span></header>
+  <main>
+    <div class="intro"><div class="eyebrow">KNIFE MAKING / HOLLOW GRIND</div><h1>Find your offset.</h1><p>Set up your primary bevel with the right distance<br class="desktop"> from the thin edge to the contact wheel center.</p></div>
+    <div class="workspace">
+      <section class="calculator" aria-labelledby="setup-title">
+        <div class="section-title"><h2 id="setup-title">Your grinding setup</h2><span>01 / INPUTS</span></div>
+        <form id="form" novalidate>
+          <div class="field"><label for="diameter">Contact wheel diameter</label><div class="select-wrap"><select id="diameter" name="diameter"><option value="8">8 inch wheel</option><option value="10">10 inch wheel</option><option value="14" selected>14 inch wheel</option></select><span>⌄</span></div></div>
+          <div class="field"><label for="thickness">Blade thickness <span class="key">T</span></label><div class="input-wrap"><input id="thickness" name="thickness" type="number" inputmode="decimal" step="any" min="0" value="0.125" aria-describedby="thickness-help"><span>in</span></div><p id="thickness-help">Full stock thickness before grinding.</p></div>
+          <div class="field"><label for="edge">Thin edge thickness <span class="key">E</span></label><div class="input-wrap"><input id="edge" name="edge" type="number" inputmode="decimal" step="any" min="0" value="0.025" aria-describedby="edge-help"><span>in</span></div><p id="edge-help">Material left at the edge after the primary grind.</p></div>
+          <div class="field"><label for="depth">Bevel depth <span class="key">B</span></label><div class="input-wrap"><input id="depth" name="depth" type="number" inputmode="decimal" step="any" min="0" value="0.450" aria-describedby="depth-help"><span>in</span></div><p id="depth-help">Distance from the thin edge to the bevel shoulder.</p></div>
+          <div class="form-footer"><span class="live-dot"></span> Updates as you type <button type="button" id="reset">Reset example ↺</button></div>
+        </form>
+      </section>
+      <div class="right-column">
+        <section class="result" aria-labelledby="result-title"><div class="result-top"><h2 id="result-title">Wheel center offset</h2><span class="result-key">X</span></div><div id="result-region" aria-live="polite" aria-atomic="true"><div class="result-number"><span id="offset">0.548</span><span class="result-unit">in</span></div><p id="result-note">Distance from the thin edge to the wheel centerline.</p></div><div class="result-bottom"><span id="result-status">READY TO SET UP</span><span id="wheel-summary">Ø 14″ WHEEL</span></div></section>
+        <section class="drawing" aria-labelledby="drawing-title"><div class="section-title"><h2 id="drawing-title">Know your dimensions</h2><span>02 / REFERENCE</span></div>
+          <svg class="diagram" viewBox="0 0 580 330" role="img" aria-labelledby="diagram-title diagram-desc"><title id="diagram-title">Blade section and wheel offset reference</title><desc id="diagram-desc">A symmetric blade section shows thin edge E, stock thickness T, depth B, and material removed per side A. A wheel setup sketch shows offset X between the thin edge level and the wheel centerline. Diagrams are schematic, not to scale.</desc>
+            <defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.7" fill="#d8d8cf"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#73786d"/></marker><marker id="orange-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#bc542c"/></marker></defs>
+            <rect width="580" height="330" fill="url(#grid)"/>
+            <g fill="none" stroke-linecap="round"><path d="M89 292 V240 Q141 188 151 100 H177 Q187 188 239 240 V292" fill="#dfe2d8" stroke="#4b5548" stroke-width="2"/><path d="M164 67 V305" stroke="#9aa18f" stroke-dasharray="5 5"/>
+            <g stroke="#a9ad9f"><path d="M89 239 H53 M151 100 H53 M61 105 V234"/><path d="M89 288 V315 M239 288 V315 M94 307 H234"/><path d="M151 97 V70 M177 97 V70 M153 77 H175"/><path d="M177 102 V54 M239 234 V54 M182 60 H234"/></g>
+            <g stroke="#73786d" marker-start="url(#arrow)" marker-end="url(#arrow)"><path d="M61 107 V233"/><path d="M96 307 H232"/><path d="M155 77 H173"/><path d="M184 60 H232"/></g>
+            <circle cx="373" cy="169" r="79" fill="#e9e9e1" stroke="#b7bdac" stroke-width="1.5"/><path d="M373 169 H487 M372 205 H487" stroke="#a1a792" stroke-dasharray="4 5"/>
+            <path d="M89 292 V240 Q141 188 151 100 H177 Q187 188 239 240 V292" transform="translate(380.786 163.6) scale(.414)" fill="#dfe2d8" stroke="#4b5548" stroke-width="2" vector-effect="non-scaling-stroke"/>
+            <path d="M373 169 L443.3 205" stroke="#a1a792"/><path d="M367 169 H379 M373 163 V175" stroke="#4b5548" stroke-width="1.5"/>
+            <path d="M487 173 V201" stroke="#bc542c" stroke-width="1.5" marker-start="url(#orange-arrow)" marker-end="url(#orange-arrow)"/></g>
+            <g font-family="system-ui,sans-serif" font-size="13" fill="#59614f"><text x="35" y="175" font-weight="700">B</text><text x="159" y="327" font-weight="700">T</text><text x="159" y="65" font-weight="700">E</text><text x="204" y="48" font-weight="700">A</text><text x="345" y="149" font-size="11">Wheel center</text><text x="491" y="222" font-size="11">Thin edge</text><text x="499" y="191" fill="#bc542c" font-weight="700">X</text><text x="104" y="27" font-size="10" letter-spacing="1.5">BLADE SECTION</text><text x="345" y="27" font-size="10" letter-spacing="1.5">WHEEL SETUP</text></g>
+          </svg>
+          <div class="legend"><div><span class="legend-letter">T</span><span>Blade thickness</span></div><div><span class="legend-letter">E</span><span>Thin edge</span></div><div><span class="legend-letter">B</span><span>Bevel depth</span></div><div><span class="legend-letter">A</span><span>Removed per side</span></div></div><p class="drawing-note">Symmetric grind on both sides. Diagrams not to scale.</p>
+        </section>
+      </div>
+    </div>
+    <aside class="tip"><span class="tip-symbol">↗</span><p><strong>From the calculator to the grinder.</strong> Measure offset X from the thin edge level to the wheel centerline, as shown. Use the same setup on each side of the blade.</p></aside>
+  </main>
+  <footer><span>BEVEL <span class="footer-divider">/</span> A better starting point for your grind.</span><span>ALL DIMENSIONS IN INCHES</span></footer>
+</div>
+<script type="module" src="./app.mjs"></script>
+</body></html>
