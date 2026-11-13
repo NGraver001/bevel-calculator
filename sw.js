@@ -1,4 +1,4 @@
-const CACHE = 'bevel-v2';
+const CACHE = 'bevel-v3-fixture';
 const ASSETS = ['./', './index.html', './style.css', './app.mjs', './calculator.mjs', './manifest.webmanifest', './icon.svg'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS))); self.skipWaiting(); });
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('bevel-') && key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));
